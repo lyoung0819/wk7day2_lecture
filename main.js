@@ -176,59 +176,158 @@
 
 // console.log('Outside Block:', testLet); // Uncaught ReferenceError: testLet is not defined (it does not return!)
 
-// JS has the same lexical scope (meaning functions can find variables outside of itside, but cannot go into nested functions or others, etc.)
+// // JS has the same lexical scope (meaning functions can find variables outside of itside, but cannot go into nested functions or others, etc.)
 
 
-// ----------------------------------------------------------------------------
-//  >> ARRAYS <<
-// ----------------------------------------------------------------------------
+// // ----------------------------------------------------------------------------
+// //  >> ARRAYS <<
+// // ----------------------------------------------------------------------------
 
-// >> DECLARING
-let people = ['Taylor Swift', 'Harry Styles', 'Beyonce', 'Billie Eilish'];
-console.log(people);
-console.log(typeof people); // object l
-
-
-// >> ACCESSING 
-// simliar to python, but doesn't have the ability for negatives
-console.log([people[0]]); // ['Taylor Swift']
-
-// Just like with strings, arrays have a built in .length property
-console.log(people.length); // 4 
+// // >> DECLARING
+// let people = ['Taylor Swift', 'Harry Styles', 'Beyonce', 'Billie Eilish'];
+// console.log(people);
+// console.log(typeof people); // object l
 
 
+// // >> ACCESSING 
+// // simliar to python, but doesn't have the ability for negatives
+// console.log([people[0]]); // ['Taylor Swift']
 
-// >> METHODS << 
-
-// >> .push(value) -- similar to python's append(), adds value to the end of an array and returns new length
-console.log(people)
-
-let returnVal = people.push('Lady Gaga');
-console.log(people);
-console.log(returnVal);
-
-// >> .pop(value) -- to remove the last element of an array. It will return that element AND will change length of array
-// in Python, you could change the index -- in JS, you cannot. It will only remove last element 
-
-console.log(people)
-let elepop = people.pop();
-console.log(elepop); // Lady Gaga
-
-console.log(people); // List without Lady Gaga 
+// // Just like with strings, arrays have a built in .length property
+// console.log(people.length); // 4 
 
 
-// >> .unshift() -- adds the specified element to the beginning of an array and returns the new length of array (opposite of push)
-console.log(people);
-x = people.unshift('Lexie Young')
-console.log(people); // added to the beggining 
 
-// >> .shift() -- removes the first element from an array and returns the new length (opposite of pop)
+// // >> METHODS << 
 
-console.log(people);
-console.log(people.shift()); // returns 'Lexie Young', the removed element 
-console.log(people)
+// // >> .push(value) -- similar to python's append(), adds value to the end of an array and returns new length
+// console.log(people)
 
-// >> DESTRUCTURING 
+// let returnVal = people.push('Lady Gaga');
+// console.log(people);
+// console.log(returnVal);
+
+// // >> .pop(value) -- to remove the last element of an array. It will return that element AND will change length of array
+// // in Python, you could change the index -- in JS, you cannot. It will only remove last element 
+
+// console.log(people)
+// let elepop = people.pop();
+// console.log(elepop); // Lady Gaga
+
+// console.log(people); // List without Lady Gaga 
+
+
+// // >> .unshift() -- adds the specified element to the beginning of an array and returns the new length of array (opposite of push)
+// console.log(people);
+// x = people.unshift('Lexie Young')
+// console.log(people); // added to the beggining 
+
+// // >> .shift() -- removes the first element from an array and returns the new length (opposite of pop)
+
+// console.log(people);
+// console.log(people.shift()); // returns 'Lexie Young', the removed element 
+// console.log(people)
+
+
+// // .indexOf() -- will return the index of the value in the arr or -1 if not present
+// // will return the first instance, not all
+
+// console.log(people.indexOf('Beyonce')); // 2
+// console.log(people.indexOf('Bad Bunny')); // -1
+
+// let nums = [10, 20, 15, 10, 12, 30, 20]
+
+// console.log(nums.indexOf(20)); // 1; will only find first occurence
+// console.log(nums.indexOf(20, 3)); // 6; we begin at index 3, looking for the index of the value 20 
+
+
+// // .forEach(callbackFn) - will execute the callback funtion on each element, discarding return val
+// // callbackFn is a function to execute for each element in an array - its return value is discarded
+
+// people.forEach(function(element){console.log(element)});
+
+// // >> ARRAY DESTRUCTURING 
+// // JS allows us to declare multiple variables at a time and assign them members of the array 
+// console.log(people);
+// // similar to unpacking in python; declare multiple variables in key bracket
+
+// let [tswift, harry, bey, billie] = people;
+// console.log(tswift); 
+
+// rainbow = ['red', 'orange', 'yellow', 'green', 'blue', 'violet']
+// let [r, o, y] = rainbow;
+// console.log(y);
+
+
+// >> REST OPERATOR ....
+// console.log(rainbow)
+// let [red, orange, yellow, ...others] = rainbow;
+
+// console.log(others)
+
+// // .join() -- allows us to join 
+// console.log(people.join(', '))
+
+// let things = ['a', 'b', 'c']
+
+// console.log(things.join('-'));
+
+// >> ARRAY SLICING 
+// .slice(start, end)
+// in python, we have element[:::] (start, stop, step), i.e. things[1:3]
+// in JS, this returns a shallow copy of a portion of an array into a new array object selected from stat to end (end not included) -- essentially you can take a portion of the array by its indices without modifying the original array 
+
+let months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun']
+console.log(months);
+console.log(months.slice());
+console.log(months.slice(3)); // Apr - Jun (starting at 3rd index, going to end)
+console.log(months.slice(1, 4)); // Feb - Apr (starts at index 1 and ends (but not includes) index 4 )
+console.log(months.slice(-4)); // will start at index 4 and go backwards 
+
+// ** NO STEP WITH JS SLICING
+
+// >> ARRAY SPLICING (IN PLACE)
+// changes the contents of the array by removing or inserting items 
+// In place: modifies the original array 
+
+// .splice(start, deleteCount, item1, item2, ..., itemN)
+
+let fruits = ['apple', 'banana', 'peach', 'watermelon'];
+
+// Insert an item at an index position (not beginning or end)
+// To add 'pear' after banana in the fruits array:
+// start - 2
+// deleteCount - 0
+// item1 - 'pear'
+fruits.splice(2, 0, 'pear');
+console.log(fruits); // original has been modified
+
+// Insert an item at index position and remove item as well
+// to replace 'peach' with 'orange'
+// start - 3
+// deleteCount - 1
+// item1 - 'orange'
+fruits.splice(3, 1, 'orange');
+console.log(fruits);
+
+// Insert and/or remove multiple items
+// replace banana, pear, orange with kiwi, grapes, mango
+fruits.splice(1, 3, 'kiwi', 'grapes', 'mango');
+console.log(fruits);
+
+// >>> In-Class Exercise #1 <<< 
+/*
+Make an Array of your favorite foods. Then using the methods we have learned, add "Fried Tarantulas" to the end of the array, then add "Mokh Mchermel" to the front. Then, using a slice of the now modified array, print your original list of favorite foods without my additions.
+*/
+
+let favFoods = ['coconut', 'banana', 'lasagna', 'cheetos']
+console.log(favFoods);
+
+favFoods.push('Fried Tarantulas');
+favFoods.unshift('Mokh Mchermel');
+console.log(favFoods);
+
+console.log(favFoods.slice(1, -1))
 
 
 
