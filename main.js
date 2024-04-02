@@ -372,6 +372,87 @@ console.log(fullName('Bo', 'Jackson'));
 
 
 // >> ARROW FUNCTIONS 
+// Similar to the lambda function in python; always anonymous, does not have its own 'this'
+// Used to make functions shorter 
+
+// The most basic arrow function 
+let doNothing = () => {};
+console.log(doNothing);
+console.log(typeof doNothing);
+
+
+/*
+Syntax:
+const functionName = (param1, param2) => {
+    // do stuff
+    return value
+}
+
+* if only one parameter, the parantheses are optional
+const functionName = param1 => {
+    // do stuff
+    return value
+}
+
+* if your function is one line returning a value, you can use the implicit return
+const functionName = (param1, param2) => returnValue
+*/
+
+const addNums2 = (num1, num2) => {
+    num1 += 10;
+    num2 += 10;
+    return num1 + num2;
+}
+console.log(addNums2);
+
+console.log(addNums2(4,8)); 
+
+// with one param, parantehses are optional
+const squareNum = num => {
+    return num**2
+}
+console.log(squareNum(5));
+
+// IMPLICIT RETURN:
+const squareNum2 = num => num**2; 
+console.log(squareNum(12));
+
+
+
+// The Spread Operator ... 
+
+// ... As a rest operator 
+let [x, y, ...z] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+console.log(x);
+console.log(y);
+console.log(z);
+
+function useSpread(x, y, z){
+    console.log('x:', x);
+    console.log('y:', y);
+    console.log('z:', z);
+    return x * y + z
+}
+
+let myNumArr = [11, 2, 7];
+
+// Traditionally, we can call our functoin like this and hard code in args"
+let myNewNum = useSpread(11, 2, 7);
+console.log(myNewNum);
+// OR like this:
+let myNewNum2 = useSpread(myNumArr[0], myNumArr[1], myNumArr[2]);
+console.log(myNewNum2);
+// OR Use the Spread Operator:
+let myNewNum3 = useSpread(...myNumArr);
+console.log(myNewNum3);
+
+
+// We can also use the Spread Operator for making copies of the array
+let myNumArr2 = [...myNumArr];
+console.log(myNumArr2);
+
+let myNumArr3 = ['hello', ...myNumArr, 'goodbye'];
+console.log(myNumArr3);
 
 
 
@@ -379,6 +460,15 @@ console.log(fullName('Bo', 'Jackson'));
 // ----------------------------------------------------------------------------
 //  >> FLOW CONTROL <<
 // ----------------------------------------------------------------------------
+
+
+// Review Ifs
+
+// Ternary Operators
+
+// For Loop
+
+
 
 
 
