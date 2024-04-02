@@ -277,57 +277,57 @@
 // in python, we have element[:::] (start, stop, step), i.e. things[1:3]
 // in JS, this returns a shallow copy of a portion of an array into a new array object selected from stat to end (end not included) -- essentially you can take a portion of the array by its indices without modifying the original array 
 
-let months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun']
-console.log(months);
-console.log(months.slice());
-console.log(months.slice(3)); // Apr - Jun (starting at 3rd index, going to end)
-console.log(months.slice(1, 4)); // Feb - Apr (starts at index 1 and ends (but not includes) index 4 )
-console.log(months.slice(-4)); // will start at index 4 and go backwards 
+// let months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun']
+// console.log(months);
+// console.log(months.slice());
+// console.log(months.slice(3)); // Apr - Jun (starting at 3rd index, going to end)
+// console.log(months.slice(1, 4)); // Feb - Apr (starts at index 1 and ends (but not includes) index 4 )
+// console.log(months.slice(-4)); // will start at index 4 and go backwards 
 
-// ** NO STEP WITH JS SLICING
+// // ** NO STEP WITH JS SLICING
 
-// >> ARRAY SPLICING (IN PLACE)
-// changes the contents of the array by removing or inserting items 
-// In place: modifies the original array 
+// // >> ARRAY SPLICING (IN PLACE)
+// // changes the contents of the array by removing or inserting items 
+// // In place: modifies the original array 
 
-// .splice(start, deleteCount, item1, item2, ..., itemN)
+// // .splice(start, deleteCount, item1, item2, ..., itemN)
 
-let fruits = ['apple', 'banana', 'peach', 'watermelon'];
+// let fruits = ['apple', 'banana', 'peach', 'watermelon'];
 
-// Insert an item at an index position (not beginning or end)
-// To add 'pear' after banana in the fruits array:
-// start - 2
-// deleteCount - 0
-// item1 - 'pear'
-fruits.splice(2, 0, 'pear');
-console.log(fruits); // original has been modified
+// // Insert an item at an index position (not beginning or end)
+// // To add 'pear' after banana in the fruits array:
+// // start - 2
+// // deleteCount - 0
+// // item1 - 'pear'
+// fruits.splice(2, 0, 'pear');
+// console.log(fruits); // original has been modified
 
-// Insert an item at index position and remove item as well
-// to replace 'peach' with 'orange'
-// start - 3
-// deleteCount - 1
-// item1 - 'orange'
-fruits.splice(3, 1, 'orange');
-console.log(fruits);
+// // Insert an item at index position and remove item as well
+// // to replace 'peach' with 'orange'
+// // start - 3
+// // deleteCount - 1
+// // item1 - 'orange'
+// fruits.splice(3, 1, 'orange');
+// console.log(fruits);
 
-// Insert and/or remove multiple items
-// replace banana, pear, orange with kiwi, grapes, mango
-fruits.splice(1, 3, 'kiwi', 'grapes', 'mango');
-console.log(fruits);
+// // Insert and/or remove multiple items
+// // replace banana, pear, orange with kiwi, grapes, mango
+// fruits.splice(1, 3, 'kiwi', 'grapes', 'mango');
+// console.log(fruits);
 
-// >>> In-Class Exercise #1 <<< 
-/*
-Make an Array of your favorite foods. Then using the methods we have learned, add "Fried Tarantulas" to the end of the array, then add "Mokh Mchermel" to the front. Then, using a slice of the now modified array, print your original list of favorite foods without my additions.
-*/
+// // >>> In-Class Exercise #1 <<< 
+// /*
+// Make an Array of your favorite foods. Then using the methods we have learned, add "Fried Tarantulas" to the end of the array, then add "Mokh Mchermel" to the front. Then, using a slice of the now modified array, print your original list of favorite foods without my additions.
+// */
 
-let favFoods = ['coconut', 'banana', 'lasagna', 'cheetos']
-console.log(favFoods);
+// let favFoods = ['coconut', 'banana', 'lasagna', 'cheetos']
+// console.log(favFoods);
 
-favFoods.push('Fried Tarantulas');
-favFoods.unshift('Mokh Mchermel');
-console.log(favFoods);
+// favFoods.push('Fried Tarantulas');
+// favFoods.unshift('Mokh Mchermel');
+// console.log(favFoods);
 
-console.log(favFoods.slice(1, -1))
+// console.log(favFoods.slice(1, -1))
 
 
 
@@ -335,6 +335,43 @@ console.log(favFoods.slice(1, -1))
 //  >> FUNCTIONS <<
 // ----------------------------------------------------------------------------
 
+// In Python: def function_name(parameters, ... )
+// In JS: 
+/* function functionName(parameters, ...) {
+    code to execute
+    }
+*/ 
+
+function addNums() {
+    let num1 = 10
+    let num2 = 20
+    return num1 + num2
+};
+
+console.log(addNums); 
+
+// To exexcute: functionName()
+
+console.log(addNums());
+
+
+
+
+/* In-Class Exercise 2:
+Create a JS Function that takes a first name and last name and returns a String that says Hello first name last name. The input would be something like:
+"Bo", "Jackson"
+and the output would be:
+"Hello Bo Jackson"
+*/
+
+function fullName(firstName, lastName){
+    return `Hello ${firstName} ${lastName}`
+}
+
+console.log(fullName('Bo', 'Jackson'));
+
+
+// >> ARROW FUNCTIONS 
 
 
 
